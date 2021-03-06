@@ -7,11 +7,11 @@ const app = express();
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname + "build")));
 
-app.get("/genres", function (req, res) {
+app.get("/genres", (req, res) => {
   controller.getGenres().then((response) => res.send(response.data));
 });
 
-app.get("/search", function (req, res) {
+app.get("/search", (req, res) => {
   let id = req.url.split("=")[1];
 
   if (id === "42069") {
@@ -25,18 +25,18 @@ app.get("/search", function (req, res) {
   } else controller.getSearch(id).then((response) => res.send(response.data));
 });
 
-app.post("/love", function (req, res) {
-  //save movie as favorite into the database
+app.post("/love", (req, res) => {
+  controller.loveMovie(req.body).then(() => res.sendStatus(201));
 });
+app.get("/love", controller.getLoved);
 
-app.post("/hate", function (req, res) {
-  //remove movie from favorites into the database
-});
+app.post("/hate", controller.hateMovie);
+app.get("/hate", controller.hateMovie);
 
 app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
 app.listen(process.env.PORT || 8080, () => {
-  console.log("*******************");
+  console.log("*********Server Running**********");
 });

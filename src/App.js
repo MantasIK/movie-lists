@@ -15,13 +15,13 @@ class App extends React.Component {
       currentList: "Love",
     };
 
-    this.getMovies = this.getMovies.bind(this);
-    this.handleit = this.handleit.bind(this);
-    this.changeList = this.changeList.bind(this);
-    this.showList = this.showList.bind(this);
+    // this.getMovies = this.getMovies.bind(this);
+    // this.handleit = this.handleit.bind(this);
+    // this.changeList = this.changeList.bind(this);
+    // this.showList = this.showList.bind(this);
   }
 
-  getMovies(id) {
+  getMovies = (id) => {
     axios.get("/search", { params: { id: id } }).then((response) => {
       if (Array.isArray(response.data)) {
         let allMovies = [];
@@ -31,24 +31,31 @@ class App extends React.Component {
         this.setState({ movies: allMovies });
       } else this.setState({ movies: response.data.results });
     });
-  }
-  changeList(e) {
+  };
+  changeList = (e) => {
     this.setState({ currentList: e.target.value });
-  }
-  showList() {
-    let changedValue = !this.state.showMovies;
-
-    this.setState({ showMovies: changedValue });
-  }
-  handleit() {
+  };
+  showList = () => {
+    this.setState({ showMovies: !this.state.showMovies });
+  };
+  handleit = () => {
     console.log(this.state.movies);
     console.log(this.state.currentList);
-  }
-  loveMovie() {}
-  unloveMovie() {}
+  };
+  saveMovie = (item) => {
+    if (this.state.currentList === "Love")
+      axios.post("/love", item).then((response) => console.log(response.data));
+    else axios.post("/hate", item).then(() => {});
+  };
+  // removeMovieFromList =() => {
+  //   if (this.state.currentList === "Love")
+  // }
 
-  hateMovie() {}
-  unhateMovie() {}
+  getLoved = () => {
+    axios
+      .get("/love")
+      .then((response) => this.setState({ loved: response.data }));
+  };
 
   /*************************************************************************** */
 
@@ -62,7 +69,7 @@ class App extends React.Component {
     return (
       <div className="app">
         <header className="navbar">
-          <h1 onClick={this.handleit}>Movie Catalog</h1>
+          <h1>Movie Catalog</h1>
         </header>
 
         <div className="main">
@@ -79,7 +86,8 @@ class App extends React.Component {
                 ? this.state.loved
                 : this.state.hated
             }
-            showFaves={this.state.showFaves}
+            showMovies={this.state.showMovies}
+            saveMovie={this.saveMovie}
           />
         </div>
       </div>

@@ -4,9 +4,9 @@ class Movies extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      movies: [],
-    };
+    // this.state = {
+    //   movies: [],
+    // };
   }
   componentDidMount() {
     this.setState({
@@ -20,9 +20,9 @@ class Movies extends React.Component {
           <li
             className="movie_item"
             onClick={
-              this.props.showFaves
-                ? () => this.props.deleteMovieClick(item)
-                : () => this.props.saveMovieClick(item)
+              this.props.showMovies
+                ? () => this.props.saveMovie(item)
+                : () => this.props.removeMovie(item)
             }
           >
             <img
