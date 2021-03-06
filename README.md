@@ -2,11 +2,11 @@
 
 The lists are stored in a **mongoDB** database.
 
-I had a simple, working version a really long time ago and nostalgia made me want to take it out of the dusty folder and finish whatever _"upgrades"_ I planned on implementing.
+I had a simpler version a really long time ago and nostalgia made me want to take it out of the dusty folder and finish whatever _"upgrades"_ I planned on implementing.
 
-It's adorable to see what my code used to look like.
+It's fun to see what my code used to look like.
 
-And **api-key** is required from *www.themoviedb.org* and should be exported in an apikey.js file in `/server/helpers` or simply pasted directly in `server/helper/apiHelpers.js` :
+An **api-key** is required from *www.themoviedb.org* and should be exported in an apikey.js file in `/server/helpers` or simply pasted directly in `server/helper/apiHelpers.js` :
 
 ```
 const axios = require("axios");
