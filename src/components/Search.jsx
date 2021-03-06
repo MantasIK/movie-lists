@@ -9,10 +9,9 @@ class Search extends React.Component {
       lists: ["Love", "Hate"],
       selection: 42069,
     };
-    // this.handleChange = this.handleChange.bind(this);
-    // this.handleList=this.handleList.bind(this)
   }
   //********************************************************* */
+
   handleChange = (e) => {
     this.props.getMovies(e.target.value);
     this.setState({ selection: e.target.value });

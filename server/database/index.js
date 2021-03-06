@@ -9,12 +9,6 @@ if (process.env.MONGODB_URI) {
     .then(console.log("*************MONGO CONNECTED**************"));
 }
 
-// mongoose.Promise = Promise;
-// db.on("error", console.error.bind(console, "Connection error:"));
-// db.once("open", () => {
-//   console.log("Connected to db...");
-// });
-
 const loveSchema = new mongoose.Schema({
   title: { type: String, unique: true },
   poster_path: String,

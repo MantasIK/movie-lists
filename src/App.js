@@ -11,7 +11,6 @@ class App extends React.Component {
       loved: [{ deway: "loved" }],
       hated: [{ deway: "hated" }],
       showMovies: true,
-
       currentList: "Love",
     };
   }
@@ -32,10 +31,6 @@ class App extends React.Component {
   };
   showList = () => {
     this.setState({ showMovies: !this.state.showMovies });
-  };
-  handleit = () => {
-    console.log(this.state.movies);
-    console.log(this.state.currentList);
   };
   getLoved = () => {
     axios
@@ -78,7 +73,7 @@ class App extends React.Component {
     return (
       <div className="app">
         <header className="navbar">
-          <h1>Movie Catalog</h1>
+          <h1>Movie Lists</h1>
         </header>
 
         <div className="main">

@@ -1,12 +1,9 @@
 import React from "react";
+import spinner from "../spinner.gif";
 
 class Movies extends React.Component {
   constructor(props) {
     super(props);
-
-    // this.state = {
-    //   movies: [],
-    // };
   }
   componentDidMount() {
     this.setState({
@@ -29,7 +26,7 @@ class Movies extends React.Component {
               src={
                 item.poster_path
                   ? `https://image.tmdb.org/t/p/w500/${item.poster_path}`
-                  : "https://lh3.googleusercontent.com/97gnjRiv2zIRnDupzfxYFoI-6zlIK3jKgb6KOCDf_tjWkY9epbITdSFIbiKhuccOqQ=w300"
+                  : spinner
               }
             />
             <div className="movie_description">
