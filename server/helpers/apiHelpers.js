@@ -1,7 +1,5 @@
 const axios = require("axios");
-const apiKey = require("./apikey");
-
-console.log(apiKey);
+const apiKey = require("./apikey"); // or paste your key here instead
 
 module.exports.getGenres = function () {
   return axios.get(
