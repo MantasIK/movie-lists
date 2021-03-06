@@ -14,11 +14,6 @@ class App extends React.Component {
 
       currentList: "Love",
     };
-
-    // this.getMovies = this.getMovies.bind(this);
-    // this.handleit = this.handleit.bind(this);
-    // this.changeList = this.changeList.bind(this);
-    // this.showList = this.showList.bind(this);
   }
 
   getMovies = (id) => {
@@ -42,25 +37,39 @@ class App extends React.Component {
     console.log(this.state.movies);
     console.log(this.state.currentList);
   };
-  saveMovie = (item) => {
-    if (this.state.currentList === "Love")
-      axios.post("/love", item).then((response) => console.log(response.data));
-    else axios.post("/hate", item).then(() => {});
-  };
-  // removeMovieFromList =() => {
-  //   if (this.state.currentList === "Love")
-  // }
-
   getLoved = () => {
     axios
       .get("/love")
       .then((response) => this.setState({ loved: response.data }));
+  };
+  getHated = () => {
+    axios
+      .get("/hate")
+      .then((response) => this.setState({ hated: response.data }));
+  };
+  saveMovie = (item) => {
+    if (this.state.currentList === "Love")
+      axios.post("/love", item).then(() => this.getLoved());
+    else axios.post("/hate", item).then(() => this.getHated());
+  };
+  removeMovieFromList = (item) => {
+    if (this.state.currentList === "Love") {
+      axios
+        .delete("/love", { data: { movie: item } })
+        .then(() => this.getLoved());
+    } else {
+      axios
+        .delete("/hate", { data: { movie: item } })
+        .then(() => this.getHated());
+    }
   };
 
   /*************************************************************************** */
 
   componentDidMount() {
     this.getMovies(42069);
+    this.getLoved();
+    this.getHated();
   }
 
   /*************************************************************************** */
@@ -77,6 +86,7 @@ class App extends React.Component {
             getMovies={this.getMovies}
             handleList={this.changeList}
             showList={this.showList}
+            showMovies={this.state.showMovies}
           />
           <Movies
             movies={
@@ -88,6 +98,7 @@ class App extends React.Component {
             }
             showMovies={this.state.showMovies}
             saveMovie={this.saveMovie}
+            removeMovie={this.removeMovieFromList}
           />
         </div>
       </div>

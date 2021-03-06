@@ -28,10 +28,26 @@ app.get("/search", (req, res) => {
 app.post("/love", (req, res) => {
   controller.loveMovie(req.body).then(() => res.sendStatus(201));
 });
-app.get("/love", controller.getLoved);
+app.get("/love", (req, res) => {
+  controller.getLoved().then((data) => res.send(data));
+});
+app.delete("/love", (req, res) => {
+  controller
+    .deleteLovedMovie(req.body.movie.title)
+    .then(() => res.sendStatus(201));
+});
 
-app.post("/hate", controller.hateMovie);
-app.get("/hate", controller.hateMovie);
+app.post("/hate", (req, res) => {
+  controller.hateMovie(req.body).then(() => res.sendStatus(201));
+});
+app.get("/hate", (req, res) => {
+  controller.getHated().then((data) => res.send(data));
+});
+app.delete("/hate", (req, res) => {
+  controller
+    .deleteHatedMovie(req.body.movie.title)
+    .then(() => res.sendStatus(201));
+});
 
 app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname, "build", "index.html"));

@@ -20,6 +20,5 @@ module.exports.hateMovie = (data) =>
     release_date: data.release_date,
   });
 
-module.exports.deleteLoved = () => Loved.deleteOne({ original_title: title });
-
-module.exports.deleteHated = () => Hated.deleteOne({ original_title: title });
+module.exports.deleteLoved = (title) => Loved.deleteOne({ title: title });
+module.exports.deleteHated = (title) => Hated.deleteOne({ title: title });

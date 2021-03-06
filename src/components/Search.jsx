@@ -29,7 +29,9 @@ class Search extends React.Component {
   render() {
     return (
       <div className="search">
-        <button onClick={this.props.showList}>Show List</button>
+        <button onClick={this.props.showList}>
+          {this.props.showMovies ? "Show List" : "Back To All"}
+        </button>
         <select onChange={this.props.handleList}>
           {this.state.lists.map((item) => (
             <option value={item}>{item}</option>

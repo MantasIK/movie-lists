@@ -15,14 +15,10 @@ module.exports.getSearchAll = (genres) => {
 };
 
 module.exports.loveMovie = (item) => models.loveMovie(item);
-module.exports.getLoved = (req, res) =>
-  models.getLoved().then((data) => res.send(data));
+module.exports.hateMovie = (item) => models.hateMovie(item);
 
-module.exports.unloveMovie = (req, res) => {};
+module.exports.getLoved = () => models.getLoved();
+module.exports.getHated = () => models.getHated();
 
-module.exports.hateMovie = (req, res) => models.hateMovie(req.body);
-
-module.exports.getHated = (req, res) =>
-  models.getHated().then((data) => res.send(data));
-
-module.exports.unhateMovie = (req, res) => {};
+module.exports.deleteLovedMovie = (title) => models.deleteLoved(title);
+module.exports.deleteHatedMovie = (title) => models.deleteHated(title);
