@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 if (process.env.MONGODB_URI) {
   mongoose.connect(process.env.MONGODB_URI);
 } else {
-  mongoose.connect("mongodb://localhost:27017/badmovies", {
+  mongoose.connect("mongodb://localhost:27017/movies", {
     useNewUrlParser: true,
   });
 }
@@ -28,3 +28,7 @@ const hateSchema = new mongoose.Schema({
   popularity: Number,
   release_date: String,
 });
+
+module.exports = mongoose.connection;
+module.exports = mongoose.model("Loved", loveSchema);
+module.exports = mongoose.model("Hated", hateSchema);

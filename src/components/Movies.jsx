@@ -19,7 +19,6 @@ class Movies extends React.Component {
         {this.props.movies.map((item) => (
           <li
             className="movie_item"
-            key={item.id}
             onClick={
               this.props.showFaves
                 ? () => this.props.deleteMovieClick(item)
