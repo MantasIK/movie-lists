@@ -1,4 +1,5 @@
 const apiHelpers = require("../helpers/apiHelpers.js");
+const models = require("../models");
 
 module.exports.getGenres = () => apiHelpers.getGenres();
 

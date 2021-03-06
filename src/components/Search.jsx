@@ -29,6 +29,7 @@ class Search extends React.Component {
   render() {
     return (
       <div className="search">
+        <button onClick={this.props.showList}>Show List</button>
         <select onChange={this.props.handleList}>
           {this.state.lists.map((item) => (
             <option value={item}>{item}</option>
@@ -47,8 +48,6 @@ class Search extends React.Component {
         </select>
         <br />
         <br />
-
-        <button>Search</button>
       </div>
     );
   }

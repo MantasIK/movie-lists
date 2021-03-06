@@ -25,11 +25,11 @@ app.get("/search", function (req, res) {
   } else controller.getSearch(id).then((response) => res.send(response.data));
 });
 
-app.post("/save", function (req, res) {
+app.post("/love", function (req, res) {
   //save movie as favorite into the database
 });
 
-app.post("/delete", function (req, res) {
+app.post("/hate", function (req, res) {
   //remove movie from favorites into the database
 });
 

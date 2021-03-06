@@ -8,13 +8,17 @@ class App extends React.Component {
     super(props);
     this.state = {
       movies: [{ deway: "movies" }],
-      favorites: [{ deway: "favorites" }],
+      loved: [{ deway: "loved" }],
+      hated: [{ deway: "hated" }],
+      showMovies: true,
+
       currentList: "Love",
     };
 
     this.getMovies = this.getMovies.bind(this);
     this.handleit = this.handleit.bind(this);
     this.changeList = this.changeList.bind(this);
+    this.showList = this.showList.bind(this);
   }
 
   getMovies(id) {
@@ -31,17 +35,20 @@ class App extends React.Component {
   changeList(e) {
     this.setState({ currentList: e.target.value });
   }
+  showList() {
+    let changedValue = !this.state.showMovies;
+
+    this.setState({ showMovies: changedValue });
+  }
   handleit() {
     console.log(this.state.movies);
     console.log(this.state.currentList);
   }
-  saveMovie() {
-    // same as above but do something diff
-  }
+  loveMovie() {}
+  unloveMovie() {}
 
-  deleteMovie() {
-    // same as above but do something diff
-  }
+  hateMovie() {}
+  unhateMovie() {}
 
   /*************************************************************************** */
 
@@ -59,10 +66,18 @@ class App extends React.Component {
         </header>
 
         <div className="main">
-          <Search getMovies={this.getMovies} handleList={this.changeList} />
+          <Search
+            getMovies={this.getMovies}
+            handleList={this.changeList}
+            showList={this.showList}
+          />
           <Movies
             movies={
-              this.state.showFaves ? this.state.favorites : this.state.movies
+              this.state.showMovies
+                ? this.state.movies
+                : this.state.currentList === "Love"
+                ? this.state.loved
+                : this.state.hated
             }
             showFaves={this.state.showFaves}
           />
