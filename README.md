@@ -1,4 +1,4 @@
-**This is an older app I was working on that calls an api to get a list of best rated movies. Movies can be clicked on to add them to either one of two different lists: Love and Hate**
+**This is an older app I was working on that calls an api to get a list of best rated movies. Movies can be clicked on to add them to one of two different lists: Love and Hate**
 
 The lists are stored in a **mongoDB** database.
 
