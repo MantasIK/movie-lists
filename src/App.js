@@ -44,15 +44,13 @@ class App extends React.Component {
       axios.post("/love", item).then(() => this.getLoved());
     else axios.post("/hate", item).then(() => this.getHated());
   };
-  removeMovieFromList = (item) => {
+  removeMovieFromList = async (item) => {
     if (this.state.currentList === "Love") {
-      axios
-        .delete("/love", { data: { movie: item } })
-        .then(() => this.getLoved());
+      await axios.delete("/love", { data: { movie: item } });
+      this.getLoved();
     } else {
-      axios
-        .delete("/hate", { data: { movie: item } })
-        .then(() => this.getHated());
+      await axios.delete("/hate", { data: { movie: item } });
+      this.getHated();
     }
   };
 
