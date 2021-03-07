@@ -29,7 +29,7 @@ class Search extends React.Component {
     return (
       <div className="search">
         <button onClick={this.props.showList}>
-          {this.props.showMovies ? "Show List" : "Back To All"}
+          {this.props.showMovies ? "Show Lists" : "Back To All"}
         </button>
         <select onChange={this.props.handleList}>
           {this.state.lists.map((item) => (

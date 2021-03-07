@@ -2,9 +2,6 @@ import React from "react";
 import spinner from "../spinner.gif";
 
 class Movies extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   componentDidMount() {
     this.setState({
       movies: this.props.movies,

@@ -15,16 +15,15 @@ class App extends React.Component {
     };
   }
 
-  getMovies = (id) => {
-    axios.get("/search", { params: { id: id } }).then((response) => {
-      if (Array.isArray(response.data)) {
-        let allMovies = [];
-        response.data.forEach((arr) =>
-          arr.forEach((item) => allMovies.push(item))
-        );
-        this.setState({ movies: allMovies });
-      } else this.setState({ movies: response.data.results });
-    });
+  getMovies = async (id) => {
+    const response = await axios.get("/search", { params: { id: id } });
+    if (Array.isArray(response.data)) {
+      let allMovies = [];
+      response.data.forEach((arr) =>
+        arr.forEach((item) => allMovies.push(item))
+      );
+      this.setState({ movies: allMovies });
+    } else this.setState({ movies: response.data.results });
   };
   changeList = (e) => {
     this.setState({ currentList: e.target.value });
@@ -32,15 +31,13 @@ class App extends React.Component {
   showList = () => {
     this.setState({ showMovies: !this.state.showMovies });
   };
-  getLoved = () => {
-    axios
-      .get("/love")
-      .then((response) => this.setState({ loved: response.data }));
+  getLoved = async () => {
+    const response = await axios.get("/love");
+    this.setState({ loved: response.data });
   };
-  getHated = () => {
-    axios
-      .get("/hate")
-      .then((response) => this.setState({ hated: response.data }));
+  getHated = async () => {
+    const response = await axios.get("/hate");
+    this.setState({ hated: response.data });
   };
   saveMovie = (item) => {
     if (this.state.currentList === "Love")
@@ -74,6 +71,7 @@ class App extends React.Component {
       <div className="app">
         <header className="navbar">
           <h1>Movie Lists</h1>
+          <h2>(Pick a list and Click on Movies to Add Them)</h2>
         </header>
 
         <div className="main">
