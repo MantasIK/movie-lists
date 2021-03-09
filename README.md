@@ -25,7 +25,7 @@ module.exports.getMovies = function (id) {
 
 <br/>
 
-**To try it out a development server:**
+**To try out a development server:**
 
 - Clone the repository and run `npm install`
 - In your **terminal**, naivgate to `/good-movies` and type `npm start` to start the development server
