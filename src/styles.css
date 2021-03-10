@@ -6,9 +6,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-color: #2c3e50; */
+
   height: 100vh;
   min-height: 100vh;
+  background-color: #2c3e50;
 }
 
 code {
@@ -27,7 +28,7 @@ code {
 .app {
   height: 100%;
   width: 100%;
-  background-color: rgba(231, 76, 60, 0.25);
+  /* background-color: rgba(231, 76, 60); */
   display: flex;
   flex-direction: column;
 }
@@ -37,9 +38,9 @@ code {
   text-align: center;
 
   box-sizing: border-box;
-  background-color: #022955ad;
+  background-color: #11427aad;
   color: #fff;
-  box-shadow: 0 10px 28px -7px rgba(0, 0, 0, 0.5);
+  /* box-shadow: 0 10px 28px -7px rgba(0, 0, 0, 0.5); */
   z-index: 2;
   padding: 20px;
 }
@@ -52,7 +53,7 @@ h2 {
 
 .main {
   flex-grow: 1;
-  display: flex;
+  /* display: flex; */
 }
 
 .search {
@@ -60,10 +61,11 @@ h2 {
   min-width: 200px;
 
   padding: 20px;
-  background-color: #022955ad;
+  background-color: #11427aad;
   z-index: 2;
   text-align: center;
   font-size: 20px;
+  border-bottom: solid thick #022144ad;
 }
 
 .search > button {
@@ -77,6 +79,7 @@ h2 {
 }
 
 .movies {
+  justify-content: center;
   flex-basis: 80%;
   display: flex;
   flex-wrap: wrap;
@@ -88,7 +91,7 @@ h2 {
 }
 
 .movie_item {
-  flex-basis: 22%;
+  flex-basis: 15%;
   box-sizing: border-box;
   margin: 1.5%;
 
