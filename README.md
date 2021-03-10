@@ -1,5 +1,7 @@
 **This is an older app I was working on that calls an api to get a list of best rated movies. Movies can be clicked on to add them to one of two different lists: Love and Hate**
 
+![preview](./preview.gif)
+
 The lists are stored in a **mongoDB** database.
 
 I had a simpler version a really long time ago and nostalgia made me want to take it out of the dusty folder and finish whatever _"upgrades"_ I planned on implementing.
