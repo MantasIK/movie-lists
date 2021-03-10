@@ -25,10 +25,10 @@ module.exports.getMovies = function (id) {
 
 <br/>
 
-**To try it out:**
+**To try out a development server:**
 
 - Clone the repository and run `npm install`
-- In your **terminal**, naivaget to `/good-movies` and type `npm start` to start the development server
-- In another terminal, navigate to the `/server` folder and run `node index.js` to start the node and mongoDB servers. The react dev server is running on **localhost:3000** with a proxy to the node server which runs on **localhost:8080**
+- In your **terminal**, naivgate to `/good-movies` and type `npm start` to start the development server
+- In another terminal, navigate to the `/server` folder and run `node index.js` to start the node server. The react dev server is running on **localhost:3000** with a proxy to the node server which runs on **localhost:8080**
 
 **Don't forget to have your _api key_ and _mongoDB_ on your machine!**
